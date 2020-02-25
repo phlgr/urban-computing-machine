@@ -12,16 +12,18 @@
   height: 50px;
   font-size: 2rem;
   text-align: right;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 .calc__input {
-  flex-basis: calc(100% / 4 - 2px);
+  flex-basis: calc(100% / 4);
   background: orange;
-  border: none;
+  border: 1px solid white;
   outline: none;
   padding: 10px 0 10px 0;
-  margin: 1px 1px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: #202020;
+  border-radius: 5px;
 }
 .calc__input:active {
   background: #ce7b00;
