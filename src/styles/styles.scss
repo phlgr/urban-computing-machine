@@ -1,5 +1,2 @@
-*,
-*::after,
-*::before {
-  box-sizing: border-box;
-}
+@use "base";
+@use "components/calculator";
