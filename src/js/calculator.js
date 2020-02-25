@@ -1,1 +1,1 @@
-document.querySelector(".calc__output").value = "42";
+const calculatorInputs = document.querySelectorAll(".calc__input");
