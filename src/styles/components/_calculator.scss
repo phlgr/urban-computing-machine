@@ -1,0 +1,30 @@
+.calc {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5%;
+}
+.calc__output {
+  flex-basis: 100%;
+  background-color: rgb(26, 26, 26);
+  color: #f4f4f4;
+  border: none;
+  outline: none;
+  height: 50px;
+  font-size: 2rem;
+  text-align: right;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.calc__input {
+  flex-basis: calc(100% / 4);
+  background: orange;
+  border: 1px solid white;
+  outline: none;
+  padding: 10px 0 10px 0;
+  font-size: 1.4rem;
+  color: #202020;
+  border-radius: 5px;
+}
+.calc__input:active {
+  background: #ce7b00;
+}
