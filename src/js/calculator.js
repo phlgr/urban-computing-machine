@@ -5,11 +5,12 @@ const calculatorOutput = document.querySelector(".calc__output");
 const calculatorInputs = document.querySelectorAll(".calc__input");
 const calculatorEquals = document.querySelector(".calc__equal");
 const calculatorReset = document.querySelector(".calc__reset");
+const calculatorAdd = document.querySelector(".calc__add");
 
 calculatorOutput.value = "Ready to calculate!";
 
 function add(numberOne, numberTwo) {
-  return numberOne + numberTwo;
+  calculatorOutput.value = numberOne + numberTwo;
 }
 function subtract(numberOne, numberTwo) {
   return numberOne - numberTwo;
@@ -21,16 +22,22 @@ function multiply(numberOne, numberTwo) {
   return numberOne * numberTwo;
 }
 
-const numberOne = calculatorInputs[1].innerText;
-const numberTwo = calculatorInputs[2].innerText;
-
-function clearOutput() {
+function clear() {
   calculatorOutput.value = "0";
 }
 
-function handleClick() {
-  calculatorOutput.value = subtract(numberOne, numberTwo);
-}
+calculatorReset.addEventListener("click", clear);
 
-calculatorEquals.addEventListener("click", handleClick);
-calculatorReset.addEventListener("click", clearOutput);
+calculatorInputs.forEach(addInputEventListener => {
+  addInputEventListener.addEventListener("click", writeValueToOutput);
+  function writeValueToOutput() {
+    if (
+      calculatorOutput.value === "0" ||
+      calculatorOutput.value === "Ready to calculate!"
+    ) {
+      calculatorOutput.value = addInputEventListener.innerText;
+    } else {
+      calculatorOutput.value += addInputEventListener.innerText;
+    }
+  }
+});
