@@ -1,7 +1,12 @@
+.calc__wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
 .calc {
   display: flex;
   flex-wrap: wrap;
-  margin: 5%;
+  max-width: 500px;
 }
 .calc__output {
   flex-basis: 100%;
@@ -21,10 +26,26 @@
   border: 1px solid white;
   outline: none;
   padding: 10px 0 10px 0;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #202020;
   border-radius: 5px;
 }
 .calc__input:active {
-  background: #ce7b00;
+  background: #da8300;
+}
+
+.calc__reset {
+  width: 100%;
+}
+
+.calc__zero {
+  flex-grow: 1;
+}
+
+.calc__special {
+  background: #979797;
+}
+
+.calc__special:active {
+  background: #707070;
 }

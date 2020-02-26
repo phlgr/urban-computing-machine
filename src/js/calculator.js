@@ -1,1 +1,1 @@
-const calculatorInputs = document.querySelectorAll(".calc__input");
+"use strict";
