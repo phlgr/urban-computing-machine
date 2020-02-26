@@ -1,3 +1,4 @@
+@use "../variables" as var;
 .calc__wrapper {
   display: flex;
   width: 100%;
@@ -9,15 +10,13 @@
   max-width: 500px;
 }
 .calc__output {
-  flex-basis: 100%;
+  flex-basis: 75%;
   background-color: rgb(26, 26, 26);
-  color: #f4f4f4;
-  border: none;
+  color: var.$bg-light;
+  border: 1px solid;
   outline: none;
-  height: 50px;
   font-size: 2rem;
   text-align: right;
-  margin-bottom: 10px;
   border-radius: 5px;
   padding-right: 15px;
 }
@@ -25,8 +24,9 @@
 .calc__input {
   flex-basis: calc(100% / 4);
   background: orange;
-  border: 1px solid white;
+  border: 1px solid var.$bg-light;
   outline: none;
+  margin: 0;
   padding: 10px 0 10px 0;
   font-size: 1.6rem;
   color: #202020;
@@ -37,7 +37,11 @@
 }
 
 .calc__reset {
-  width: 100%;
+  background: #e90000;
+}
+
+.calc__reset:active {
+  background: #cf0000;
 }
 
 .calc__zero {
