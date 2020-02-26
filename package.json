@@ -20,6 +20,7 @@
   "devDependencies": {
     "htmlhint": "^0.11.0",
     "prettier": "^1.19.1",
-    "sass": "^1.26.0"
+    "sass": "^1.26.0",
+    "eslint": "^6.8.0"
   }
 }
