@@ -12,8 +12,8 @@
 .calc__output {
   flex-basis: 100%;
   background-color: rgb(26, 26, 26);
-  color: var.$bg-light;
-  border: 1px solid;
+  color: white;
+  border: 1px solid var.$bg-light;
   outline: none;
   font-size: 2rem;
   text-align: right;
