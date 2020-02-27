@@ -1,31 +1,18 @@
 "use strict";
+import { add, subtract, multiply, divide } from "./math.js";
 
 //query elements
 const calculatorOutput = document.querySelector(".calc__output");
 const calculatorInputs = document.querySelectorAll(".calc__input");
 const calculatorEquals = document.querySelector(".calc__equal");
 const calculatorReset = document.querySelector(".calc__reset");
-const calculatorAdd = document.querySelector(".calc__add");
 const calculatorOperators = document.querySelectorAll(".calc__special");
 
-let oldNumber = 0;
-let newNumber = 0;
+let numberOne = 0;
+let numberTwo = 0;
 let operator = "";
 
 calculatorOutput.value = "Ready to calculate!";
-
-function add(numberOne, numberTwo) {
-  calculatorOutput.value = numberOne + numberTwo;
-}
-function subtract(numberOne, numberTwo) {
-  return numberOne - numberTwo;
-}
-function divide(numberOne, numberTwo) {
-  return numberOne / numberTwo;
-}
-function multiply(numberOne, numberTwo) {
-  return numberOne * numberTwo;
-}
 
 function clear() {
   calculatorOutput.value = "0";
@@ -33,8 +20,8 @@ function clear() {
 
 function clearAll() {
   clear();
-  oldNumber = 0;
-  newNumber = 0;
+  numberOne = 0;
+  numberTwo = 0;
 }
 
 calculatorReset.addEventListener("click", clearAll);
@@ -55,10 +42,10 @@ calculatorInputs.forEach(addInputEventListener => {
 
 calculatorOperators.forEach(addOperatorEventListener => {
   addOperatorEventListener.addEventListener("click", () => {
-    if (oldNumber == 0) {
-      oldNumber = Number(calculatorOutput.value);
+    if (numberOne == 0) {
+      numberOne = Number(calculatorOutput.value);
     } else {
-      newNumber = Number(calculatorOutput.value);
+      numberTwo = Number(calculatorOutput.value);
     }
     operator = addOperatorEventListener.innerText;
     clear();
@@ -66,23 +53,23 @@ calculatorOperators.forEach(addOperatorEventListener => {
 });
 
 calculatorEquals.addEventListener("click", () => {
-  newNumber = Number(calculatorOutput.value);
+  numberTwo = Number(calculatorOutput.value);
   clear();
   switch (operator) {
     case "+":
-      calculatorOutput.value = oldNumber + newNumber;
+      calculatorOutput.value = add(numberOne, numberTwo);
       break;
     case "-":
-      calculatorOutput.value = oldNumber - newNumber;
+      calculatorOutput.value = subtract(numberOne, numberTwo);
       break;
     case "/":
-      calculatorOutput.value = oldNumber / newNumber;
+      calculatorOutput.value = divide(numberOne, numberTwo);
       break;
     case "*":
-      calculatorOutput.value = oldNumber * newNumber;
+      calculatorOutput.value = multiply(numberOne, numberTwo);
       break;
   }
 
-  oldNumber = Number(calculatorOutput.value);
-  newNumber = 0;
+  numberOne = Number(calculatorOutput.value);
+  numberTwo = 0;
 });
