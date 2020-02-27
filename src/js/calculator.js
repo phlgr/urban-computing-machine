@@ -6,7 +6,6 @@ const calculatorOutput = document.querySelector(".calc__output");
 const calculatorInputs = document.querySelectorAll(".calc__input");
 const calculatorEquals = document.querySelector(".calc__equal");
 const calculatorReset = document.querySelector(".calc__reset");
-const calculatorAdd = document.querySelector(".calc__add");
 const calculatorOperators = document.querySelectorAll(".calc__special");
 
 let numberOne = 0;
