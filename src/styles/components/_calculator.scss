@@ -7,7 +7,7 @@
 .calc {
   display: flex;
   flex-wrap: wrap;
-  max-width: 500px;
+  max-width: 350px;
 }
 .calc__output {
   flex-basis: 100%;
@@ -19,46 +19,33 @@
   text-align: right;
   border-radius: 5px;
   padding-right: 15px;
+  font-family: calc;
 }
 
 .calc__btn {
-  flex-basis: calc(100% / 4);
-  background: orange;
-  border: 1px solid var.$bg-light;
+  flex-basis: calc(100% / 4 - 20px);
+  height: 67.5px;
+  border: none;
   outline: none;
-  margin: 0;
+  margin: 10px;
+  color: #fefefe;
   padding: 10px 0 10px 0;
   font-size: 1.6rem;
-  color: #202020;
-  border-radius: 5px;
+  border-radius: 10px;
+  background: var.$bg-light;
+  box-shadow: 4px 4px 8px #212b3b, -4px -4px 8px #2d3a4f;
 }
-.calc__input:active {
-  background: #da8300;
+.calc__btn:active {
+  border-radius: 10px;
+  background: linear-gradient(145deg, #2a364a, #232d3e);
+  box-shadow: 4px 4px 8px #212b3b, -4px -4px 8px #2d3a4f;
 }
 
-.calc__reset {
-  background: #e90000;
-}
-
-.calc__reset:active {
-  background: #cf0000;
+.calc__special,
+.calc__equal {
+  color: orange;
 }
 
 .calc__zero {
   flex-grow: 1;
-}
-
-.calc__special {
-  background: #979797;
-}
-
-.calc__special:active {
-  background: #707070;
-}
-.calc__equal {
-  background: #979797;
-}
-
-.calc__equal:active {
-  background: #707070;
 }
