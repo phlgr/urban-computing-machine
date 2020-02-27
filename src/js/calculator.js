@@ -12,7 +12,7 @@ let oldNumber = 0;
 let newNumber = 0;
 let operator = "";
 
-calculatorOutput.value = "Ready to calculate!";
+calculatorOutput.value = "0";
 
 function add(numberOne, numberTwo) {
   calculatorOutput.value = numberOne + numberTwo;
