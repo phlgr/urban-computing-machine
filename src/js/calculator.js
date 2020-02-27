@@ -5,11 +5,17 @@ const calculatorOutput = document.querySelector(".calc__output");
 const calculatorInputs = document.querySelectorAll(".calc__input");
 const calculatorEquals = document.querySelector(".calc__equal");
 const calculatorReset = document.querySelector(".calc__reset");
+const calculatorAdd = document.querySelector(".calc__add");
+const calculatorOperators = document.querySelectorAll(".calc__special");
+
+let oldNumber = 0;
+let newNumber = 0;
+let operator = "";
 
 calculatorOutput.value = "Ready to calculate!";
 
 function add(numberOne, numberTwo) {
-  return numberOne + numberTwo;
+  calculatorOutput.value = numberOne + numberTwo;
 }
 function subtract(numberOne, numberTwo) {
   return numberOne - numberTwo;
@@ -21,16 +27,62 @@ function multiply(numberOne, numberTwo) {
   return numberOne * numberTwo;
 }
 
-const numberOne = calculatorInputs[1].innerText;
-const numberTwo = calculatorInputs[2].innerText;
-
-function clearOutput() {
+function clear() {
   calculatorOutput.value = "0";
 }
 
-function handleClick() {
-  calculatorOutput.value = subtract(numberOne, numberTwo);
+function clearAll() {
+  clear();
+  oldNumber = 0;
+  newNumber = 0;
 }
 
-calculatorEquals.addEventListener("click", handleClick);
-calculatorReset.addEventListener("click", clearOutput);
+calculatorReset.addEventListener("click", clearAll);
+
+calculatorInputs.forEach(addInputEventListener => {
+  addInputEventListener.addEventListener("click", writeValueToOutput);
+  function writeValueToOutput() {
+    if (
+      calculatorOutput.value === "0" ||
+      calculatorOutput.value === "Ready to calculate!"
+    ) {
+      calculatorOutput.value = addInputEventListener.innerText;
+    } else {
+      calculatorOutput.value += addInputEventListener.innerText;
+    }
+  }
+});
+
+calculatorOperators.forEach(addOperatorEventListener => {
+  addOperatorEventListener.addEventListener("click", () => {
+    if (oldNumber == 0) {
+      oldNumber = Number(calculatorOutput.value);
+    } else {
+      newNumber = Number(calculatorOutput.value);
+    }
+    operator = addOperatorEventListener.innerText;
+    clear();
+  });
+});
+
+calculatorEquals.addEventListener("click", () => {
+  newNumber = Number(calculatorOutput.value);
+  clear();
+  switch (operator) {
+    case "+":
+      calculatorOutput.value = oldNumber + newNumber;
+      break;
+    case "-":
+      calculatorOutput.value = oldNumber - newNumber;
+      break;
+    case "/":
+      calculatorOutput.value = oldNumber / newNumber;
+      break;
+    case "*":
+      calculatorOutput.value = oldNumber * newNumber;
+      break;
+  }
+
+  oldNumber = Number(calculatorOutput.value);
+  newNumber = 0;
+});

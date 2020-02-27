@@ -21,7 +21,7 @@
   padding-right: 15px;
 }
 
-.calc__input {
+.calc__btn {
   flex-basis: calc(100% / 4);
   background: orange;
   border: 1px solid var.$bg-light;
@@ -53,5 +53,12 @@
 }
 
 .calc__special:active {
+  background: #707070;
+}
+.calc__equal {
+  background: #979797;
+}
+
+.calc__equal:active {
   background: #707070;
 }
